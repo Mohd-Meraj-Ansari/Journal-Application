@@ -1,6 +1,7 @@
 package com.app.journal.entity;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
@@ -10,6 +11,7 @@ import java.time.LocalDateTime;
 
 @Document
 @Data
+@NoArgsConstructor
 public class JournalEntry {
 
     @Id
