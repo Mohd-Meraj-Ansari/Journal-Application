@@ -55,10 +55,10 @@ public class JournalEntryController {
     }
 
     @DeleteMapping("/id/{myid}")
-    public boolean deleteJournalById(@PathVariable ObjectId myid)
+    public ResponseEntity<?> deleteJournalById(@PathVariable ObjectId myid)
     {
         journalEntryService.deleteById(myid);
-        return true;
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     @PutMapping("/update/{myid}")
