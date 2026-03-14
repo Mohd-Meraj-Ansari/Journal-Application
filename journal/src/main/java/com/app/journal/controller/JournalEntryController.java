@@ -8,6 +8,8 @@ import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
@@ -24,17 +26,25 @@ public class JournalEntryController {
     @Autowired
     private UserService userService;
 
-    @PostMapping("/add-entry/{userName}")
-    public ResponseEntity<?> createEntry(@RequestBody JournalEntry entry,@PathVariable String userName)
+    @PostMapping("/add-entry")
+    public ResponseEntity<?> createEntry(@RequestBody JournalEntry entry)
     {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String userName = authentication.getName();
         journalEntryService.saveEntry(entry,userName);
         return new ResponseEntity<>(entry, HttpStatus.CREATED);
     }
 
-    @GetMapping("/get-all-entries/{userName}")
-    public ResponseEntity<?> getAllJournalEntriesOfUser(@PathVariable String userName)
+    @GetMapping("/get-all-entries")
+    public ResponseEntity<?> getAllJournalEntriesOfUser()
     {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String userName = authentication.getName();
         User storedUser = userService.findByUserName(userName);
+
+        if (storedUser == null) {
+            return new ResponseEntity<>("User not found", HttpStatus.NOT_FOUND);
+        }
 
         List<JournalEntry> allEntries = storedUser.getJournalEntries();
         if(allEntries != null && !allEntries.isEmpty())

@@ -29,16 +29,26 @@ public class UserController {
 
     @PutMapping("/update-user")
     public ResponseEntity<?> updateUser(@RequestBody User user) {
+
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String userName = authentication.getName();
+
         User storedUser = userService.findByUserName(userName);
+
         if (storedUser != null) {
+
             storedUser.setUserName(user.getUserName());
-            storedUser.setPassword(user.getPassword());
-            userService.saveEntry(storedUser);
-            return new ResponseEntity<>(HttpStatus.OK);
+
+            if (user.getPassword() != null && !user.getPassword().isEmpty()) {
+                storedUser.setPassword(userService.encodePassword(user.getPassword()));
+            }
+
+            userService.saveUser(storedUser);
+
+            return ResponseEntity.ok().build();
         }
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+
+        return ResponseEntity.notFound().build();
     }
 
     @DeleteMapping("/delete")
@@ -46,5 +56,6 @@ public class UserController {
     {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         userRepository.deleteByUserName(authentication.getName());
+        return new ResponseEntity<>("Deleted Successfully", HttpStatus.OK);
     }
 }

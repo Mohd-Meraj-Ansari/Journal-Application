@@ -21,15 +21,22 @@ public class UserService {
 
     private static final PasswordEncoder PASSWORD_ENCODER = new BCryptPasswordEncoder();
 
-    public static void saveNewUser(User user)
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    public String encodePassword(String password) {
+        return passwordEncoder.encode(password);
+    }
+
+    public void saveNewUser(User user)
     {
         user.setPassword(PASSWORD_ENCODER.encode(user.getPassword()));
         user.setRoles(Arrays.asList("USER"));
+        userRepository.save(user);
     }
 
-    public void saveEntry(User user)
+    public void saveUser(User user)
     {
-        saveNewUser(user);
         userRepository.save(user);
     }
 
