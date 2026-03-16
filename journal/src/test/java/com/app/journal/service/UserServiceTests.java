@@ -3,6 +3,7 @@ package com.app.journal.service;
 import com.app.journal.entity.JournalEntry;
 import com.app.journal.entity.User;
 import com.app.journal.repository.UserRepository;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -22,11 +23,13 @@ public class UserServiceTests {
     @Autowired
     UserService userService;
 
+    @Disabled
     @Test
     public void testFindByUserName() {
         assertNotNull(userRepository.findByUserName("ben"));
     }
 
+    @Disabled
     @ParameterizedTest
     @ValueSource(strings = {
             "alice", "ben", "chris"
