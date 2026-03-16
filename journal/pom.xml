@@ -28,8 +28,9 @@
     </scm>
     <properties>
         <java.version>17</java.version>
-        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+        <sonar.projectKey>Mohd-Meraj-Ansari_Journal-Application</sonar.projectKey>
         <sonar.organization>mohd-meraj-ansari</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     </properties>
     <dependencies>
         <dependency>
