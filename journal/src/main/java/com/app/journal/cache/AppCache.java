@@ -16,12 +16,13 @@ public class AppCache {
     @Autowired
     private ConfigJournalAppRepository configJournalAppRepository;
 
-   public Map<String,String> appCache = new HashMap<>();
+   public Map<String,String> appCache;
 
     @PostConstruct
     public  void init()
     {
 //        System.out.println("AppCache called");
+        appCache = new HashMap<>();
         List<ConfigJournalApp> all = configJournalAppRepository.findAll();
         for(ConfigJournalApp configJournalApp :all)
         {
