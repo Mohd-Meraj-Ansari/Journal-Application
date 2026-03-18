@@ -19,11 +19,11 @@ public class JournalAppApplication {
         SpringApplication.run(JournalAppApplication.class, args);
     }
 
-    @Bean
-    public PlatformTransactionManager transactionManager(MongoDatabaseFactory mongoDatabaseFactory)
-    {
-        return new MongoTransactionManager(mongoDatabaseFactory);
-    }
+//    @Bean
+//    public PlatformTransactionManager transactionManager(MongoDatabaseFactory mongoDatabaseFactory)
+//    {
+//        return new MongoTransactionManager(mongoDatabaseFactory);
+//    }
 
     @Bean
     public RestTemplate restTemplate()

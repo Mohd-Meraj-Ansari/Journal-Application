@@ -20,19 +20,30 @@ public class WeatherService {
     @Autowired
     private RestTemplate restTemplate;
 
+    @Autowired
+    private RedisService redisService;
+
     public WeatherResponse getWeather(String city) {
         String urlTemplate = appCache.appCache.get("weather_api");
 
         if (urlTemplate == null) {
             throw new RuntimeException("weather_api URL not found in cache");
         }
-
-        String URL = urlTemplate
-                .replace("Key", APIKEY)
-                .replace("CITY", city);
+        WeatherResponse cachedWeatherResponse = redisService.get("weather_of_" + city, WeatherResponse.class);
+        if (cachedWeatherResponse != null) {
+            return cachedWeatherResponse;
+        } else {
+            String URL = urlTemplate
+                    .replace("Key", APIKEY)
+                    .replace("CITY", city);
 //        String URL = appCache.appCache.get("weather_api").replace("Key", APIKEY).replace("CITY", city);
-        ResponseEntity<WeatherResponse> response = restTemplate.exchange(URL, HttpMethod.GET, null, WeatherResponse.class);
-        WeatherResponse body = response.getBody();
-        return body;
+            ResponseEntity<WeatherResponse> response = restTemplate.exchange(URL, HttpMethod.GET, null, WeatherResponse.class);
+            WeatherResponse body = response.getBody();
+            if(body != null)
+            {
+                redisService.set("weather_of_" + city,body,300l);
+            }
+            return body;
+        }
     }
 }

@@ -5,13 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="93d3aeb9-acb6-4ee1-9c24-ac34e2993efd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/journal/src/main/java/com/app/journal/repository/UserRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/journal/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/journal/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/journal/src/main/java/com/app/journal/JournalAppApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/journal/src/main/java/com/app/journal/JournalAppApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/journal/src/main/java/com/app/journal/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/journal/src/main/java/com/app/journal/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/journal/src/main/java/com/app/journal/service/JournalEntryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/journal/src/main/java/com/app/journal/service/JournalEntryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/journal/src/main/java/com/app/journal/entity/JournalEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/journal/src/main/java/com/app/journal/entity/JournalEntry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/journal/src/main/java/com/app/journal/scheduler/UserScheduler.java" beforeDir="false" afterPath="$PROJECT_DIR$/journal/src/main/java/com/app/journal/scheduler/UserScheduler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/journal/src/main/java/com/app/journal/service/WeatherService.java" beforeDir="false" afterPath="$PROJECT_DIR$/journal/src/main/java/com/app/journal/service/WeatherService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/journalApp.log" beforeDir="false" afterPath="$PROJECT_DIR$/journalApp.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -27,6 +26,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
