@@ -8,7 +8,11 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/journal/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/journal/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/journal/src/main/java/com/app/journal/config/SpringSecurity.java" beforeDir="false" afterPath="$PROJECT_DIR$/journal/src/main/java/com/app/journal/config/SpringSecurity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/journal/src/main/java/com/app/journal/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/journal/src/main/java/com/app/journal/controller/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/journal/src/main/java/com/app/journal/controller/HealthCheck.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/journal/src/main/java/com/app/journal/controller/JournalEntryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/journal/src/main/java/com/app/journal/controller/JournalEntryController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/journal/src/main/java/com/app/journal/controller/PublicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/journal/src/main/java/com/app/journal/controller/PublicController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/journal/src/main/java/com/app/journal/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/journal/src/main/java/com/app/journal/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/journalApp.log" beforeDir="false" afterPath="$PROJECT_DIR$/journalApp.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

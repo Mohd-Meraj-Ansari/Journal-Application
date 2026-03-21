@@ -33,6 +33,11 @@ public class SpringSecurity {
                         .requestMatchers("/public/**").permitAll()
                         .requestMatchers("/journal/**", "/user/**").authenticated()
                         .requestMatchers("/admin/**").hasRole("ADMIN")
+                        .requestMatchers(
+                                "/v3/api-docs/**",
+                                "/swagger-ui/**",
+                                "/swagger-ui.html"
+                        ).permitAll()
 //                        .requestMatchers("/admin/**").permitAll()
                         .anyRequest().authenticated())
 //                .httpBasic(Customizer.withDefaults())

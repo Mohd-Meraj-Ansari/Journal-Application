@@ -5,6 +5,8 @@ import com.app.journal.entity.User;
 import com.app.journal.repository.UserRepository;
 import com.app.journal.service.UserService;
 import com.app.journal.service.WeatherService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +18,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/user")
+@Tag(name="User APIs",description = "update and delete user and weather info")
 public class UserController {
 
     @Autowired
@@ -33,6 +36,7 @@ public class UserController {
 //    }
 
     @PutMapping("/update-user")
+    @Operation(summary="update username, password of a user")
     public ResponseEntity<?> updateUser(@RequestBody User user) {
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -57,6 +61,7 @@ public class UserController {
     }
 
     @DeleteMapping("/delete")
+    @Operation(summary="Delete a user")
     public ResponseEntity<?> deleteByUserName()
     {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -65,6 +70,7 @@ public class UserController {
     }
 
     @GetMapping("/get-weather")
+    @Operation(summary="get weather information of a city")
     public ResponseEntity<?> getweather()
     {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
